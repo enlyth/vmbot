@@ -4,7 +4,7 @@ const client = require('./vmbot.js').client
 const onReady = require('./vmbot.js').onReady
 const parseIncomingMessage = require('./vmbot.js').parseIncomingMessage
 require('dotenv').config()
-const admin = { id: process.env.ADMIN_ID }
+const adminId = process.env.ADMIN_ID
 const storage = require('./vmbot.js').storage
 
 
@@ -22,8 +22,8 @@ test('can init ready', async () => {
 test('can parse messages', async () => {
   expect(await parseIncomingMessage({content: '', channel: {send: x => x}})).toBe(false)
   expect(await parseIncomingMessage({content: '`new', channel: {send: x => x}})).toBe(undefined)
-  expect(await parseIncomingMessage({content: '`auth', channel: {send: x => x}, author: {id: settings.admin}})).toBe(undefined)
-  expect(await parseIncomingMessage({content: '` 123', channel: {send: x => x}, author: {id: settings.admin}})).toBe(undefined)
-  expect(await parseIncomingMessage({content: '` )', channel: {send: x => x}, author: {id: settings.admin}})).toBe(undefined)
+  expect(await parseIncomingMessage({content: '`auth', channel: {send: x => x}, author: {id: adminId}})).toBe(undefined)
+  expect(await parseIncomingMessage({content: '` 123', channel: {send: x => x}, author: {id: adminId}})).toBe(undefined)
+  expect(await parseIncomingMessage({content: '` )', channel: {send: x => x}, author: {id: adminId}})).toBe(undefined)
 })
 
