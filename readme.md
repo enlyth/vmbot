@@ -1,5 +1,4 @@
 # vmbot
-Website: www.vmbot.io
 
 ## What is this?
 It's a self-hosted bot made mostly for fun, allowing you to run arbitrary JavaScript in your Discord channel.
